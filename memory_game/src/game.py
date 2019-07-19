@@ -1,8 +1,7 @@
-from board import Board
-import os_func as sys
 import re as regex
 import time
-
+from . import os_func as sys
+from src.components.board import Board
 
 class Game:
     def __init__(self):
