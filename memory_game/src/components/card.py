@@ -1,7 +1,8 @@
 class Card:
-    def __init__(self, value):
+    def __init__(self, value, pos):
         self.value = value
         self.is_reveal = False
+        self.pos = pos
 
     # Special Methods
     def __str__(self):

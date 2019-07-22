@@ -13,7 +13,6 @@ class Board:
         self.size = board_size
 
     # Special Methods
-
     def __iter__(self):
         return iter(self.__grid)
 
@@ -42,9 +41,9 @@ class Board:
         card_value_array = list(range(1, self.size**2 // 2 + 1)) * 2
         random.shuffle(card_value_array)
 
-        for row in self:
-            for idx in range(len(row)):
-                row[idx] = Card(card_value_array.pop())
+        for r_idx, row in enumerate(self):
+            for c_idx in range(len(row)):
+                row[c_idx] = Card(card_value_array.pop(), (r_idx, c_idx))
 
     def won(self):
         for row in self:

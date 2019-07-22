@@ -1,0 +1,2 @@
+class AlreadyPlacedError(Exception):
+    pass
