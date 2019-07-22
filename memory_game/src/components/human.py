@@ -7,7 +7,7 @@ class Human(Player):
 
     
     def get_move(self, *args):
-        user_input = input('Please input a coordinate, for ex: 1, 3  1, 2  etc\n')
+        user_input = input('Please input a coordinate, for ex: 1, 3 etc:\n')
         return self.__parse_input(user_input)
         
     def delay(self):

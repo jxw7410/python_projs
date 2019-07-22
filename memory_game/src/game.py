@@ -27,6 +27,10 @@ class Game:
             self.play()
             if self.board.won():
                 self.is_over = True
+        
+        self.__render()
+        self.__won()
+
 
 
     def play(self):
@@ -77,6 +81,15 @@ class Game:
        
 
     # Private Methods
+    def __won(self):
+        if self.player.points > self.computer.points:
+            print(f"Winner is {self.player.name} with {self.player.points}")
+        elif self.player.points < self.computer.points:
+            print(f"Winner is {self.computer.name} with {self.computer.points}")
+        else:
+            print(f'Draw! No winner.')
+
+
     def __swap_players(self):
         self.current_player = self.player if self.current_player == self.computer else self.computer
 
@@ -84,13 +97,14 @@ class Game:
         clear()
         print(self.current_player)
         self.board.render()
+        print()
     
     def __no_match(self, x, y):
         self.__render()
         print('There is no Match\n')
         self.previous_card.hide()
         self.board[x, y].hide()
-        self.available_moves.add((x, y))
+        self.available_moves.add(self.previous_card.pos)
         self.previous_card = None
         self.__swap_players()
         time.sleep(1)

@@ -1,5 +1,6 @@
 from .card import Card
 import random
+from colorama import init, Fore
 
 
 class Board:
@@ -11,6 +12,7 @@ class Board:
 
         self.__grid = [[0]*board_size for i in range(board_size)]
         self.size = board_size
+        init()
 
     # Special Methods
     def __iter__(self):
@@ -57,7 +59,8 @@ class Board:
         for row in self:
             for card in row:
                 if card.is_reveal:
-                    print(card, end=" ")
+                    print(Fore.BLUE + str(card), end=" ")
+                    print(Fore.WHITE, end="")
                 else:
                     print("? ", end=" ")
             print()
