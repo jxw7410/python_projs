@@ -1,9 +1,11 @@
-from .consts import BOARD_SIZE
 from .piece import Piece
+from .utils import Constants
+
+
 
 class Board:
     def __init__(self):
-        self.__grid = [[" "] * BOARD_SIZE() for i in range(BOARD_SIZE())]
+        self.__grid = [ [" "] * Constants.BOARD_SIZE for i in range(Constants.BOARD_SIZE)]
 
     # Special Methods
     def __iter__(self):
@@ -28,15 +30,15 @@ class Board:
 
     #Public Methods
     def initialize(self):
-        self.__grid[0] = [Piece(board, ), Piece(), Piece(),
-                          Piece(), Piece(), Piece(), 
-                          Piece(), Piece()]
+        self.__grid[0] = [Piece(self, (0, 0)), Piece(self, (0, 1)), Piece(self,(0, 2)),
+                          Piece(self, (0, 3)), Piece(self, (0, 4)), Piece(self,(0, 5)), 
+                          Piece(self, (0, 6)), Piece(self, (0, 7))]
         
-        self.__grid[7] = [Piece(), Piece(), Piece(),
-                          Piece(), Piece(), Piece(),
-                          Piece(), Piece()]
+        self.__grid[7] = [Piece(self, (7, 0)), Piece(self, (7, 1)), Piece(self, (7, 2)),
+                          Piece(self, (7, 3)), Piece(self, (7, 4)), Piece(self, (7, 5)),
+                          Piece(self, (7, 6)), Piece(self, (7, 7))]
 
-        for c_idx in range(BOARD_SIZE()):
+        for c_idx in range(Constants.BOARD_SIZE):
             self[1, c_idx], self[6, c_idx] = None, None 
         
 
